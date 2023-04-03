@@ -8,6 +8,7 @@ import javax.annotation.Nonnull;
 import java.util.*;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
+import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
@@ -70,10 +71,19 @@ public class WRake<R> {
     }
 
 
+    public R fire() throws Throwable {
+        return doFire(ForkJoinPool.commonPool(), null);
+    }
+
+    public R fire(long waitMs) throws Throwable {
+        return doFire(ForkJoinPool.commonPool(), TimeUnit.MILLISECONDS.toNanos(waitMs));
+    }
+
     public R fire(ExecutorService executor) throws Throwable {
         return doFire(executor, null);
     }
 
+    //recommend
     public R fire(ExecutorService executor, long waitMs) throws Throwable {
         return doFire(executor, TimeUnit.MILLISECONDS.toNanos(waitMs));
     }
@@ -130,8 +140,8 @@ public class WRake<R> {
         return exit;
     }
 
-    private void doPark(Long waitNs, boolean last) {
-        if (waitNs == null || last) {
+    private void doPark(Long waitNs, boolean selfPark) {
+        if (waitNs == null || selfPark) {
             LockSupport.park(this);
         } else {
             long waitTime = waitNs - waited.addAndGet(System.nanoTime() - anchor);
@@ -195,7 +205,7 @@ public class WRake<R> {
             }
             needUnPark = incrAndQueue(node);
         } catch (Throwable e) {
-            //抛出异常时，在调用层再唤醒
+            // 抛出异常时，在调用层再唤醒
             needUnPark = false;
             throw e;
         } finally {

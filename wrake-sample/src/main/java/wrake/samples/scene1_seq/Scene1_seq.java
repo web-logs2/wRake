@@ -1,4 +1,4 @@
-package wrake.samples.scene2_seq;
+package wrake.samples.scene1_seq;
 
 
 import wrake.WRake;
@@ -10,7 +10,7 @@ import java.util.concurrent.Executors;
 /**
  * 任务之间，有依赖关系，纯串行
  */
-public class Scene2_seq {
+public class Scene1_seq {
 
 
     public static void main(String[] args) throws Throwable {

@@ -1,13 +1,13 @@
 [
     {
         "jmhVersion" : "1.36",
-        "benchmark" : "wrake.samples.scene6_benchmark.Scene6_Benchmark.wRaked",
-        "mode" : "thrpt",
+        "benchmark" : "wrake.samples.scene6_benchmark.Scene6_Benchmark.completableFuture",
+        "mode" : "avgt",
         "threads" : 2,
         "forks" : 1,
         "jvm" : "/Users/admin/Library/Java/JavaVirtualMachines/azul-1.8.0_352/Contents/Home/jre/bin/java",
         "jvmArgs" : [
-            "-javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=62669:/Applications/IntelliJ IDEA.app/Contents/bin",
+            "-javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=60982:/Applications/IntelliJ IDEA.app/Contents/bin",
             "-Dfile.encoding=UTF-8"
         ],
         "jdkVersion" : "1.8.0_352",
@@ -20,29 +20,29 @@
         "measurementTime" : "10 s",
         "measurementBatchSize" : 1,
         "primaryMetric" : {
-            "score" : 0.06283309417948506,
+            "score" : 32.600709710116035,
             "scoreError" : "NaN",
             "scoreConfidence" : [
                 "NaN",
                 "NaN"
             ],
             "scorePercentiles" : {
-                "0.0" : 0.06268239696653438,
-                "50.0" : 0.06283309417948506,
-                "90.0" : 0.06298379139243573,
-                "95.0" : 0.06298379139243573,
-                "99.0" : 0.06298379139243573,
-                "99.9" : 0.06298379139243573,
-                "99.99" : 0.06298379139243573,
-                "99.999" : 0.06298379139243573,
-                "99.9999" : 0.06298379139243573,
-                "100.0" : 0.06298379139243573
+                "0.0" : 32.5107851622089,
+                "50.0" : 32.600709710116035,
+                "90.0" : 32.690634258023174,
+                "95.0" : 32.690634258023174,
+                "99.0" : 32.690634258023174,
+                "99.9" : 32.690634258023174,
+                "99.99" : 32.690634258023174,
+                "99.999" : 32.690634258023174,
+                "99.9999" : 32.690634258023174,
+                "100.0" : 32.690634258023174
             },
-            "scoreUnit" : "ops/ms",
+            "scoreUnit" : "ms/op",
             "rawData" : [
                 [
-                    0.06298379139243573,
-                    0.06268239696653438
+                    32.5107851622089,
+                    32.690634258023174
                 ]
             ]
         },
@@ -51,13 +51,13 @@
     },
     {
         "jmhVersion" : "1.36",
-        "benchmark" : "wrake.samples.scene6_benchmark.Scene6_Benchmark.wRaked",
+        "benchmark" : "wrake.samples.scene6_benchmark.Scene6_Benchmark.completableFutureDefaultPool",
         "mode" : "avgt",
         "threads" : 2,
         "forks" : 1,
         "jvm" : "/Users/admin/Library/Java/JavaVirtualMachines/azul-1.8.0_352/Contents/Home/jre/bin/java",
         "jvmArgs" : [
-            "-javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=62669:/Applications/IntelliJ IDEA.app/Contents/bin",
+            "-javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=60982:/Applications/IntelliJ IDEA.app/Contents/bin",
             "-Dfile.encoding=UTF-8"
         ],
         "jdkVersion" : "1.8.0_352",
@@ -70,29 +70,129 @@
         "measurementTime" : "10 s",
         "measurementBatchSize" : 1,
         "primaryMetric" : {
-            "score" : 32.112566607723565,
+            "score" : 32.320594737850506,
             "scoreError" : "NaN",
             "scoreConfidence" : [
                 "NaN",
                 "NaN"
             ],
             "scorePercentiles" : {
-                "0.0" : 31.353734572355016,
-                "50.0" : 32.112566607723565,
-                "90.0" : 32.87139864309211,
-                "95.0" : 32.87139864309211,
-                "99.0" : 32.87139864309211,
-                "99.9" : 32.87139864309211,
-                "99.99" : 32.87139864309211,
-                "99.999" : 32.87139864309211,
-                "99.9999" : 32.87139864309211,
-                "100.0" : 32.87139864309211
+                "0.0" : 32.04941355224824,
+                "50.0" : 32.320594737850506,
+                "90.0" : 32.59177592345277,
+                "95.0" : 32.59177592345277,
+                "99.0" : 32.59177592345277,
+                "99.9" : 32.59177592345277,
+                "99.99" : 32.59177592345277,
+                "99.999" : 32.59177592345277,
+                "99.9999" : 32.59177592345277,
+                "100.0" : 32.59177592345277
             },
             "scoreUnit" : "ms/op",
             "rawData" : [
                 [
-                    31.353734572355016,
-                    32.87139864309211
+                    32.04941355224824,
+                    32.59177592345277
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.36",
+        "benchmark" : "wrake.samples.scene6_benchmark.Scene6_Benchmark.wrake",
+        "mode" : "avgt",
+        "threads" : 2,
+        "forks" : 1,
+        "jvm" : "/Users/admin/Library/Java/JavaVirtualMachines/azul-1.8.0_352/Contents/Home/jre/bin/java",
+        "jvmArgs" : [
+            "-javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=60982:/Applications/IntelliJ IDEA.app/Contents/bin",
+            "-Dfile.encoding=UTF-8"
+        ],
+        "jdkVersion" : "1.8.0_352",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.352-b08",
+        "warmupIterations" : 1,
+        "warmupTime" : "10 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 32.614990948533745,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 32.47448038474026,
+                "50.0" : 32.614990948533745,
+                "90.0" : 32.75550151232723,
+                "95.0" : 32.75550151232723,
+                "99.0" : 32.75550151232723,
+                "99.9" : 32.75550151232723,
+                "99.99" : 32.75550151232723,
+                "99.999" : 32.75550151232723,
+                "99.9999" : 32.75550151232723,
+                "100.0" : 32.75550151232723
+            },
+            "scoreUnit" : "ms/op",
+            "rawData" : [
+                [
+                    32.75550151232723,
+                    32.47448038474026
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.36",
+        "benchmark" : "wrake.samples.scene6_benchmark.Scene6_Benchmark.wrakeDefaultPool",
+        "mode" : "avgt",
+        "threads" : 2,
+        "forks" : 1,
+        "jvm" : "/Users/admin/Library/Java/JavaVirtualMachines/azul-1.8.0_352/Contents/Home/jre/bin/java",
+        "jvmArgs" : [
+            "-javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=60982:/Applications/IntelliJ IDEA.app/Contents/bin",
+            "-Dfile.encoding=UTF-8"
+        ],
+        "jdkVersion" : "1.8.0_352",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.352-b08",
+        "warmupIterations" : 1,
+        "warmupTime" : "10 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 2,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 31.9731667520449,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 31.873012871019107,
+                "50.0" : 31.9731667520449,
+                "90.0" : 32.07332063307069,
+                "95.0" : 32.07332063307069,
+                "99.0" : 32.07332063307069,
+                "99.9" : 32.07332063307069,
+                "99.99" : 32.07332063307069,
+                "99.999" : 32.07332063307069,
+                "99.9999" : 32.07332063307069,
+                "100.0" : 32.07332063307069
+            },
+            "scoreUnit" : "ms/op",
+            "rawData" : [
+                [
+                    31.873012871019107,
+                    32.07332063307069
                 ]
             ]
         },

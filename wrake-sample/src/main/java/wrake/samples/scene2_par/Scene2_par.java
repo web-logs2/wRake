@@ -1,4 +1,4 @@
-package wrake.samples.scene1_par;
+package wrake.samples.scene2_par;
 
 
 import wrake.WRake;
@@ -10,7 +10,7 @@ import java.util.concurrent.Executors;
 /**
  * 任务之间，没有依赖关系，可以并行执行
  */
-public class Scene1_par {
+public class Scene2_par {
 
 
     public static void main(String[] args) throws Throwable {

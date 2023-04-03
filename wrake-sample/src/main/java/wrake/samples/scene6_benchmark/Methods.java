@@ -6,7 +6,7 @@ import org.apache.commons.lang3.StringUtils;
 public class Methods {
 
     public static String fun(String methodName, String... results) {
-        ThreadUtils.sleepQuite(5);
+        ThreadUtils.sleepQuite(100);
         if (results != null && results.length > 0) {
             methodName = (pre(results) + "+" + methodName);
         }

@@ -20,8 +20,8 @@ public class Scene5_multiReturn {
 
         for (int i = 0; i < 100000; i++) {
             RandomHolder randomHolder = new RandomHolder();
-            Result<String> res1 = main.originArrange(randomHolder);
-            Result<String> res2 = main.rakeArrange(executorService, randomHolder);
+            Result<String> res1 = main.original(randomHolder);
+            Result<String> res2 = main.wRake(executorService, randomHolder);
             if (StringUtils.equals(JSON.toJSONString(res1), JSON.toJSONString(res2))) {
                 System.out.println("ok, result is:" + res1);
             } else {
@@ -32,7 +32,7 @@ public class Scene5_multiReturn {
         executorService.shutdown();
     }
 
-    private Result<String> originArrange(RandomHolder randomHolder) {
+    private Result<String> original(RandomHolder randomHolder) {
         try {
             String fun1Res = Methods.fun1(randomHolder);//fun1无法修改，调用方使用多个api对变量赋值
             if (fun1Res == null) {
@@ -68,7 +68,7 @@ public class Scene5_multiReturn {
         }
     }
 
-    private Result<String> rakeArrange(ExecutorService executorService, RandomHolder randomHolder) {
+    private Result<String> wRake(ExecutorService executorService, RandomHolder randomHolder) {
         WRake<Result<String>> wRake = new WRake<>();
         try {
 

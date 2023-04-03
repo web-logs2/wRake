@@ -8,7 +8,8 @@ public class Compare {
 //            long start = System.currentTimeMillis();
             System.out.println("1:" + Scene6_Benchmark.original());
 //            System.out.println(System.currentTimeMillis() - start + " ms");
-            System.out.println("2:" + Scene6_Benchmark.wRaked());
+            System.out.println("2:" + Scene6_Benchmark.wrake());
+            System.out.println("3:" + Scene6_Benchmark.completableFuture());
         }
     }
 }

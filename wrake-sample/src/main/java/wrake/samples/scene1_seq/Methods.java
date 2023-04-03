@@ -1,4 +1,4 @@
-package wrake.samples.scene2_seq;
+package wrake.samples.scene1_seq;
 
 import wrake.samples.utils.ThreadUtils;
 

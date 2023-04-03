@@ -18,9 +18,9 @@ public class Node {
     private Set<Node> nextNodes;
 
     /**
-     * 执行任务，返回是否实际执行成功
+     * 执行任务，并返回执行结果
      * @param wRake
-     * @return
+     * @return null抢占失败，true正常执行，false异常执行
      * @param <R>
      * @throws Throwable
      */
