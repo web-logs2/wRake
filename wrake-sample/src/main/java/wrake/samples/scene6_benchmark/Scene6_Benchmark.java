@@ -60,7 +60,6 @@ public class Scene6_Benchmark {
      * end
      */
 
-
 //    @Benchmark()
     public static Result<String> original() {
         try {
