@@ -32,6 +32,18 @@ public class WRake<R> {
     int i = 1;
 
     private void buildGridAndReadyQueue() {
+        readyQueue(buildGrid());
+    }
+
+    private void readyQueue(Map<WTask<?>, Node> tnMap) {
+        for (Map.Entry<WTask<?>, Node> ety : tnMap.entrySet()) {
+            if (CollectionUtils.isEmpty(ety.getValue().getPrevNodes())) {
+                readyQueue.offer(ety.getValue());
+            }
+        }
+    }
+
+    private Map<WTask<?>, Node> buildGrid() {
         Map<WTask<?>, Node> tnMap = Maps.newHashMapWithExpectedSize(16);
         for (WTask<?> task : tasks) {
             Node existNode = tnMap.get(task);
@@ -54,11 +66,7 @@ public class WRake<R> {
                 dep.addNext(node);
             }
         }
-        for (Map.Entry<WTask<?>, Node> ety : tnMap.entrySet()) {
-            if (CollectionUtils.isEmpty(ety.getValue().getPrevNodes())) {
-                readyQueue.offer(ety.getValue());
-            }
-        }
+        return tnMap;
     }
 
 
