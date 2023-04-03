@@ -13,8 +13,11 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
+import static org.openjdk.jmh.annotations.Mode.AverageTime;
+import static org.openjdk.jmh.annotations.Mode.Throughput;
 
-@BenchmarkMode(Mode.All)
+
+@BenchmarkMode({Throughput,AverageTime})
 @OutputTimeUnit(TimeUnit.MILLISECONDS)
 @State(Scope.Benchmark)
 @Warmup(iterations = 1, time = 10, timeUnit = TimeUnit.SECONDS)
@@ -51,7 +54,7 @@ public class Scene6_Benchmark {
      * end
      */
 
-    @Benchmark()
+//    @Benchmark()
     public static Result<String> original() {
         String fun1 = Methods.fun("fun1");
         String fun2 = Methods.fun("fun2", fun1);

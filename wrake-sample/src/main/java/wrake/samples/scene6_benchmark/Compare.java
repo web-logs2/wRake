@@ -4,7 +4,7 @@ public class Compare {
 
 
     public static void main(String[] args) {
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 1; i++) {
 //            long start = System.currentTimeMillis();
             System.out.println("1:" + Scene6_Benchmark.original());
 //            System.out.println(System.currentTimeMillis() - start + " ms");
