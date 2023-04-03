@@ -7,42 +7,44 @@
         "forks" : 1,
         "jvm" : "/Users/admin/Library/Java/JavaVirtualMachines/azul-1.8.0_352/Contents/Home/jre/bin/java",
         "jvmArgs" : [
-            "-javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=59877:/Applications/IntelliJ IDEA.app/Contents/bin",
+            "-javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=54115:/Applications/IntelliJ IDEA.app/Contents/bin",
             "-Dfile.encoding=UTF-8"
         ],
         "jdkVersion" : "1.8.0_352",
         "vmName" : "OpenJDK 64-Bit Server VM",
         "vmVersion" : "25.352-b08",
-        "warmupIterations" : 1,
+        "warmupIterations" : 2,
         "warmupTime" : "10 s",
         "warmupBatchSize" : 1,
-        "measurementIterations" : 2,
+        "measurementIterations" : 4,
         "measurementTime" : "10 s",
         "measurementBatchSize" : 1,
         "primaryMetric" : {
-            "score" : 529.2254636497075,
-            "scoreError" : "NaN",
+            "score" : 33.05165509968134,
+            "scoreError" : 2.412755073633354,
             "scoreConfidence" : [
-                "NaN",
-                "NaN"
+                30.63890002604799,
+                35.4644101733147
             ],
             "scorePercentiles" : {
-                "0.0" : 521.3028458973683,
-                "50.0" : 529.2254636497075,
-                "90.0" : 537.1480814020467,
-                "95.0" : 537.1480814020467,
-                "99.0" : 537.1480814020467,
-                "99.9" : 537.1480814020467,
-                "99.99" : 537.1480814020467,
-                "99.999" : 537.1480814020467,
-                "99.9999" : 537.1480814020467,
-                "100.0" : 537.1480814020467
+                "0.0" : 32.667753949346405,
+                "50.0" : 33.03227678989083,
+                "90.0" : 33.47431286959731,
+                "95.0" : 33.47431286959731,
+                "99.0" : 33.47431286959731,
+                "99.9" : 33.47431286959731,
+                "99.99" : 33.47431286959731,
+                "99.999" : 33.47431286959731,
+                "99.9999" : 33.47431286959731,
+                "100.0" : 33.47431286959731
             },
             "scoreUnit" : "ms/op",
             "rawData" : [
                 [
-                    521.3028458973683,
-                    537.1480814020467
+                    33.246121771129566,
+                    32.667753949346405,
+                    32.81843180865209,
+                    33.47431286959731
                 ]
             ]
         },
@@ -57,42 +59,148 @@
         "forks" : 1,
         "jvm" : "/Users/admin/Library/Java/JavaVirtualMachines/azul-1.8.0_352/Contents/Home/jre/bin/java",
         "jvmArgs" : [
-            "-javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=59877:/Applications/IntelliJ IDEA.app/Contents/bin",
+            "-javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=54115:/Applications/IntelliJ IDEA.app/Contents/bin",
             "-Dfile.encoding=UTF-8"
         ],
         "jdkVersion" : "1.8.0_352",
         "vmName" : "OpenJDK 64-Bit Server VM",
         "vmVersion" : "25.352-b08",
-        "warmupIterations" : 1,
+        "warmupIterations" : 2,
         "warmupTime" : "10 s",
         "warmupBatchSize" : 1,
-        "measurementIterations" : 2,
+        "measurementIterations" : 4,
         "measurementTime" : "10 s",
         "measurementBatchSize" : 1,
         "primaryMetric" : {
-            "score" : 537.2107718947368,
-            "scoreError" : "NaN",
+            "score" : 32.89517340542815,
+            "scoreError" : 7.640379510652318,
             "scoreConfidence" : [
-                "NaN",
-                "NaN"
+                25.254793894775837,
+                40.53555291608047
             ],
             "scorePercentiles" : {
-                "0.0" : 537.0766167587719,
-                "50.0" : 537.2107718947368,
-                "90.0" : 537.3449270307017,
-                "95.0" : 537.3449270307017,
-                "99.0" : 537.3449270307017,
-                "99.9" : 537.3449270307017,
-                "99.99" : 537.3449270307017,
-                "99.999" : 537.3449270307017,
-                "99.9999" : 537.3449270307017,
-                "100.0" : 537.3449270307017
+                "0.0" : 31.54873881447536,
+                "50.0" : 32.799854373602514,
+                "90.0" : 34.43224606003223,
+                "95.0" : 34.43224606003223,
+                "99.0" : 34.43224606003223,
+                "99.9" : 34.43224606003223,
+                "99.99" : 34.43224606003223,
+                "99.999" : 34.43224606003223,
+                "99.9999" : 34.43224606003223,
+                "100.0" : 34.43224606003223
             },
             "scoreUnit" : "ms/op",
             "rawData" : [
                 [
-                    537.0766167587719,
-                    537.3449270307017
+                    32.81116060246818,
+                    31.54873881447536,
+                    34.43224606003223,
+                    32.78854814473684
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.36",
+        "benchmark" : "wrake.samples.scene6_benchmark.Scene6_Benchmark.original",
+        "mode" : "avgt",
+        "threads" : 2,
+        "forks" : 1,
+        "jvm" : "/Users/admin/Library/Java/JavaVirtualMachines/azul-1.8.0_352/Contents/Home/jre/bin/java",
+        "jvmArgs" : [
+            "-javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=54115:/Applications/IntelliJ IDEA.app/Contents/bin",
+            "-Dfile.encoding=UTF-8"
+        ],
+        "jdkVersion" : "1.8.0_352",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.352-b08",
+        "warmupIterations" : 2,
+        "warmupTime" : "10 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 4,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 59.063962008505726,
+            "scoreError" : 8.866238548746715,
+            "scoreConfidence" : [
+                50.19772345975901,
+                67.93020055725245
+            ],
+            "scorePercentiles" : {
+                "0.0" : 57.62986918919009,
+                "50.0" : 58.88760224743488,
+                "90.0" : 60.85077434996305,
+                "95.0" : 60.85077434996305,
+                "99.0" : 60.85077434996305,
+                "99.9" : 60.85077434996305,
+                "99.99" : 60.85077434996305,
+                "99.999" : 60.85077434996305,
+                "99.9999" : 60.85077434996305,
+                "100.0" : 60.85077434996305
+            },
+            "scoreUnit" : "ms/op",
+            "rawData" : [
+                [
+                    57.62986918919009,
+                    58.47764997368421,
+                    59.297554521185546,
+                    60.85077434996305
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.36",
+        "benchmark" : "wrake.samples.scene6_benchmark.Scene6_Benchmark.wrake",
+        "mode" : "avgt",
+        "threads" : 2,
+        "forks" : 1,
+        "jvm" : "/Users/admin/Library/Java/JavaVirtualMachines/azul-1.8.0_352/Contents/Home/jre/bin/java",
+        "jvmArgs" : [
+            "-javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=54115:/Applications/IntelliJ IDEA.app/Contents/bin",
+            "-Dfile.encoding=UTF-8"
+        ],
+        "jdkVersion" : "1.8.0_352",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "25.352-b08",
+        "warmupIterations" : 2,
+        "warmupTime" : "10 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 4,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 35.020720616034296,
+            "scoreError" : 10.026549095837645,
+            "scoreConfidence" : [
+                24.99417152019665,
+                45.04726971187194
+            ],
+            "scorePercentiles" : {
+                "0.0" : 33.4021870923913,
+                "50.0" : 34.98512643450604,
+                "90.0" : 36.710442502733784,
+                "95.0" : 36.710442502733784,
+                "99.0" : 36.710442502733784,
+                "99.9" : 36.710442502733784,
+                "99.99" : 36.710442502733784,
+                "99.999" : 36.710442502733784,
+                "99.9999" : 36.710442502733784,
+                "100.0" : 36.710442502733784
+            },
+            "scoreUnit" : "ms/op",
+            "rawData" : [
+                [
+                    33.4021870923913,
+                    34.05098908673469,
+                    36.710442502733784,
+                    35.919263782277405
                 ]
             ]
         },
@@ -107,42 +215,44 @@
         "forks" : 1,
         "jvm" : "/Users/admin/Library/Java/JavaVirtualMachines/azul-1.8.0_352/Contents/Home/jre/bin/java",
         "jvmArgs" : [
-            "-javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=59877:/Applications/IntelliJ IDEA.app/Contents/bin",
+            "-javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=54115:/Applications/IntelliJ IDEA.app/Contents/bin",
             "-Dfile.encoding=UTF-8"
         ],
         "jdkVersion" : "1.8.0_352",
         "vmName" : "OpenJDK 64-Bit Server VM",
         "vmVersion" : "25.352-b08",
-        "warmupIterations" : 1,
+        "warmupIterations" : 2,
         "warmupTime" : "10 s",
         "warmupBatchSize" : 1,
-        "measurementIterations" : 2,
+        "measurementIterations" : 4,
         "measurementTime" : "10 s",
         "measurementBatchSize" : 1,
         "primaryMetric" : {
-            "score" : 538.6536765913743,
-            "scoreError" : "NaN",
+            "score" : 33.711857775792254,
+            "scoreError" : 3.905812856808863,
             "scoreConfidence" : [
-                "NaN",
-                "NaN"
+                29.80604491898339,
+                37.61767063260112
             ],
             "scorePercentiles" : {
-                "0.0" : 538.4881284634503,
-                "50.0" : 538.6536765913743,
-                "90.0" : 538.8192247192983,
-                "95.0" : 538.8192247192983,
-                "99.0" : 538.8192247192983,
-                "99.9" : 538.8192247192983,
-                "99.99" : 538.8192247192983,
-                "99.999" : 538.8192247192983,
-                "99.9999" : 538.8192247192983,
-                "100.0" : 538.8192247192983
+                "0.0" : 33.13826822419219,
+                "50.0" : 33.573040344258125,
+                "90.0" : 34.56308219046056,
+                "95.0" : 34.56308219046056,
+                "99.0" : 34.56308219046056,
+                "99.9" : 34.56308219046056,
+                "99.99" : 34.56308219046056,
+                "99.999" : 34.56308219046056,
+                "99.9999" : 34.56308219046056,
+                "100.0" : 34.56308219046056
             },
             "scoreUnit" : "ms/op",
             "rawData" : [
                 [
-                    538.8192247192983,
-                    538.4881284634503
+                    34.56308219046056,
+                    33.61705292814611,
+                    33.52902776037014,
+                    33.13826822419219
                 ]
             ]
         },

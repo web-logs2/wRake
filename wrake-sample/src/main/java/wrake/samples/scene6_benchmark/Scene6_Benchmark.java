@@ -24,8 +24,8 @@ import static org.openjdk.jmh.annotations.Mode.AverageTime;
 })
 @OutputTimeUnit(TimeUnit.MILLISECONDS)
 @State(Scope.Benchmark)
-@Warmup(iterations = 1, time = 10, timeUnit = TimeUnit.SECONDS)
-@Measurement(iterations = 2, time = 10, timeUnit = TimeUnit.SECONDS)
+@Warmup(iterations = 2, time = 10, timeUnit = TimeUnit.SECONDS)
+@Measurement(iterations = 4, time = 10, timeUnit = TimeUnit.SECONDS)
 @Fork(1)
 @Threads(2)
 public class Scene6_Benchmark {
@@ -60,7 +60,7 @@ public class Scene6_Benchmark {
      * end
      */
 
-//    @Benchmark()
+    @Benchmark()
     public static Result<String> original() {
         try {
             String fun1 = Methods.fun("fun1");
