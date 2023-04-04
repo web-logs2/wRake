@@ -91,7 +91,7 @@ public static Result<String> wrake() {
 
 ## 3.原理
 
-<img src="imgs/未命名绘图 (2).jpg" alt="未命名绘图 (2)" style="zoom:50%;" />
+<img src="imgs/未命名绘图 (3).jpg" alt="未命名绘图 (3)" style="zoom:50%;" />
 
 wRake采用Reactor的模型，使用主线程充当扫描线程，通过Queue，
 
