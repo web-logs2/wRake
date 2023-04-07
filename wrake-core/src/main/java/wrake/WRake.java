@@ -98,7 +98,7 @@ public class WRake<R> {
             buildGridAndReadyQueue();
             do {
                 while (!readyQueue.isEmpty()) {
-                    runNode(executor, readyQueue.poll());
+                    dispatch(executor, readyQueue.poll());
                 }
                 doPark(waitNs, false);
             } while (!needBreak());
@@ -161,7 +161,7 @@ public class WRake<R> {
         return taskTermRes.get() != Optional.empty();
     }
 
-    private void runNode(ExecutorService executor, Node node) {
+    private void dispatch(ExecutorService executor, Node node) {
         Thread thread = Thread.currentThread();
         executor.submit(() -> {
             try {
