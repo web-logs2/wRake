@@ -93,7 +93,9 @@ public static Result<String> wrake() {
 
 ## 3.原理
 
-<img src="imgs/flow.jpg" alt="工作流程" style="zoom:50%;" width="400" />
+<p align="center">
+    <img src="imgs/flow.jpg" alt="工作流程" style="zoom:50%;" width="400" />
+</p>
 
 wRake采用Reactor的模型，使用主线程充当扫描线程扫描readyQueue并分发给工作线程，工作线程在执行完毕当前任务之后，会将后续任务放入readyQueue并唤醒主线程，主线程扫描并投放，直至出现`中断`、`异常`、`正常结束`。
 
