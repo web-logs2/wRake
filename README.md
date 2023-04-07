@@ -15,14 +15,11 @@ wRake是一个微型的**方法并发调用编排**框架。
 
 ```java
 /*
- *             start
- *               1
- *             2   3
- *          4    5   6
- *             7   8
- *               9
- *              end
- * 方法调用由上至下，子节点依赖父节点执行。
+ *            6
+ *          3   8
+ * begin  1   5   9   end
+ *          2   7
+ *            4
  */
 public static Result<String> original() {
   try {
