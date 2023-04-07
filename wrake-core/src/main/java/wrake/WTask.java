@@ -3,8 +3,10 @@ package wrake;
 import com.google.common.collect.Lists;
 import org.apache.commons.collections4.CollectionUtils;
 
+import javax.annotation.Nonnull;
 import java.util.List;
 import java.util.concurrent.Callable;
+import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 public class WTask<T> {
@@ -33,6 +35,7 @@ public class WTask<T> {
     private T result;
     private Object termRes;//强转，避免过多引入泛型
     private List<WBackUp<T>> backUps;
+    private Consumer<T> consumer;
     private List<WTermination<T>> terminates;
 
     protected WTask() {
@@ -43,11 +46,19 @@ public class WTask<T> {
             doRun();
             handleBackup();
             handleTerm();
+            handleConsumer();
         } catch (Exception e) {
             setTaskState(TASK_STATE_EXCEPTION);
             throw e;
         }
         return getTaskState();
+    }
+
+    private void handleConsumer() {
+        if (this.consumer==null) {
+            return;
+        }
+        this.consumer.accept(get());
     }
 
     private void doRun() throws Exception {
@@ -95,7 +106,7 @@ public class WTask<T> {
         return this;
     }
 
-    public WTask<T> setCallable(Callable<T> callable) {
+    protected WTask<T> setCallable(Callable<T> callable) {
         this.callable = callable;
         return this;
     }
@@ -155,6 +166,11 @@ public class WTask<T> {
 
     public T get() {
         return result;
+    }
+
+    public WTask<T> defConsumer(@Nonnull Consumer<T> consumer) {
+        this.consumer = consumer;
+        return this;
     }
     public WTask<T> defBackup(Predicate<T> predicate, WBackUpTask<T> backup) {
         if (backUps == null) {

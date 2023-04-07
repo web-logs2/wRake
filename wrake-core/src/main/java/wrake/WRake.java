@@ -20,18 +20,15 @@ public class WRake<R> {
 
     private final List<WTask<?>> tasks = new ArrayList<>(100);
     private final Queue<Node> readyQueue = new MpscArrayQueue<>(100);//thread-safe
+    private final AtomicInteger total = new AtomicInteger(0);
     private final AtomicInteger finished = new AtomicInteger(0);
-    private int total;
     private final AtomicReference<Optional<R>> taskTermRes = new AtomicReference<>(Optional.empty());
-    //避免结束后被线程池任务唤醒影响下次编排
+    //避免结束后仍被线程池任务唤醒影响下次编排
     private volatile boolean exit;
-    //用于快速结束剩余任务
     private final AtomicReference<Throwable> throwable = new AtomicReference<>();
     private final AtomicLong waited = new AtomicLong(0);
 
     //构建node依赖网格
-    int i = 1;
-
     private void buildGridAndReadyQueue() {
         readyQueue(buildGrid());
     }
@@ -47,22 +44,20 @@ public class WRake<R> {
     private Map<WTask<?>, Node> buildGrid() {
         Map<WTask<?>, Node> tnMap = Maps.newHashMapWithExpectedSize(16);
         for (WTask<?> task : tasks) {
-            Node existNode = tnMap.get(task);
-            if (existNode != null) {
+            Node node = tnMap.get(task);
+            if (node != null) {
                 continue;
             }
 
-            Node node = new Node().setTask(task).setName("task" + (i++));
+            node = new Node().setTask(task);
             tnMap.put(task, node);
             if (CollectionUtils.isEmpty(task.getDepends())) {
                 continue;
             }
             for (WTask<?> depend : task.getDepends()) {
-                Node dep = tnMap.get(depend);
-                if (dep == null) {
-                    dep = new Node().setTask(depend);
-                    tnMap.put(depend, dep);
-                }
+                Node dep = tnMap.computeIfAbsent(
+                        depend, wTask -> new Node().setTask(depend)
+                );
                 node.addPrev(dep);
                 dep.addNext(node);
             }
@@ -159,7 +154,7 @@ public class WRake<R> {
     }
 
     private boolean finished() {
-        return finished.get() == total;
+        return finished.get() == total.get();
     }
 
     private boolean termed() {
@@ -230,7 +225,7 @@ public class WRake<R> {
     }
 
     private boolean incrAndQueue(Node node) {
-        if (finished.incrementAndGet() == total) {
+        if (finished.incrementAndGet() == total.get()) {
             return true;
         }
         Set<Node> ns = node.getNextNodes();
@@ -249,7 +244,7 @@ public class WRake<R> {
     public <T> WTask<T> defTask(@Nonnull Callable<T> callable) {
         WTask<T> task = new WTask<T>().setCallable(callable);
         tasks.add(task);
-        total++;
+        total.incrementAndGet();
         return task;
     }
 
