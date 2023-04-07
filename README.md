@@ -107,12 +107,12 @@ wRake采用Reactor的模型，使用主线程充当扫描线程扫描readyQueue�
 ## 4.基准测试
 
 ```
-Benchmark                                      Mode  Cnt   Score   Error  Units
-Scene6_Benchmark.completableFuture             avgt    4  31.894 ± 1.840  ms/op
-Scene6_Benchmark.completableFutureDefaultPool  avgt    4  31.735 ± 1.941  ms/op
-Scene6_Benchmark.original                      avgt    4  56.009 ± 2.508  ms/op
-Scene6_Benchmark.wrake                         avgt    4  31.994 ± 0.941  ms/op
-Scene6_Benchmark.wrakeDefaultPool              avgt    4  32.144 ± 3.100  ms/op
+Benchmark                                               Mode  Cnt   Score   Error  Units
+Scene6_Benchmark.completableFuture(4-threads)           avgt    4  31.894 ± 1.840  ms/op
+Scene6_Benchmark.completableFuture(ForkJoinCommonPool)  avgt    4  31.735 ± 1.941  ms/op
+Scene6_Benchmark.original                               avgt    4  56.009 ± 2.508  ms/op
+Scene6_Benchmark.wrake(4-threads)                       avgt    4  31.994 ± 0.941  ms/op
+Scene6_Benchmark.wrake(ForkJoinCommonPool)              avgt    4  32.144 ± 3.100  ms/op
 ```
 
 benchmark样例见：[benchmark](https://github.com/wentry18/wRake/tree/master/wrake-sample/src/main/java/wrake/samples/scene6_benchmark)
