@@ -4,8 +4,7 @@ package wrake.samples.scene2_par;
 import wrake.WRake;
 import wrake.WTask;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 
 /**
  * 任务之间，没有依赖关系，可以并行执行
@@ -14,17 +13,12 @@ public class Scene2_par {
 
 
     public static void main(String[] args) throws Throwable {
-        ExecutorService executorService = Executors.newFixedThreadPool(2);
-
         for (int i = 0; i < 100; i++) {
-            doTest(executorService);
+            doTest();
         }
-
-        executorService.shutdown();
-
     }
 
-    private static void doTest(ExecutorService executorService) throws Throwable {
+    private static void doTest() throws Throwable {
         long start = System.currentTimeMillis();
 
         WRake<Void> wRake = new WRake<>();
@@ -37,7 +31,15 @@ public class Scene2_par {
         WTask<String> t6 = wRake.defTask(Methods::fun6);
 
 
-        wRake.fire(executorService);
+        ThreadPoolExecutor pool = new ThreadPoolExecutor(
+                1,
+                8,//1，主线程页会执行任务
+                1, TimeUnit.MINUTES,
+                new SynchronousQueue<>(),
+                new ThreadPoolExecutor.CallerRunsPolicy()
+        );
+
+        wRake.fire(pool);
 
         System.out.println(System.currentTimeMillis() - start + " ms");
         System.out.println(t1.get());
